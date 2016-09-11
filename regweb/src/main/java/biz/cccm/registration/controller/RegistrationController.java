@@ -586,7 +586,7 @@ public class RegistrationController {
         try {
 
             if (form.getPaymentMethod() == PaymentMethod.PERSONAL_CHECK) {
-                String template = "CCCC_2015_Registration_Acknowledgement.html";
+                String template = "CCCC_2016_Registration_Acknowledgement.html";
 //                if (form.getPaymentCurrency().equalsIgnoreCase("USD")) {
 //                    template = "CCLIFE_2015_Registration_Recieved_US.html";
 //                }
@@ -769,6 +769,19 @@ public class RegistrationController {
         totalExpense.setTotalMealsFee(grpTotalMealFee);
 
         return totalExpense;
+    }
+
+    public boolean isSeminarSignup(List<Registrant> registrants) {
+        
+        boolean showSeminar = false;
+
+        for (Registrant regt : registrants) {
+            if (regt.getPerson().getPreferredLanguage().contentEquals("M")) {
+                showSeminar = true ;
+            }
+        }
+        
+        return showSeminar ;
     }
 
     private static boolean isInteger(String s) {

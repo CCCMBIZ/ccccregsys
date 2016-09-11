@@ -29,7 +29,7 @@
     <body>
         <div id="page">
             <div id="header">
-                <p align="center"><span class="style2">芝加哥 2014 基督徒大會報名表 Chicago Chinese Christian Conference 2014</span><br/>
+                <p align="center"><span class="style2">芝加哥 2016 基督徒大會報名表 Chicago Chinese Christian Conference 2016</span><br/>
                     主題:《覺醒--預備迎見你的神》 講員:饒孝楫、劉傳章、劉志雄...等牧師<br/>
                     時間: 12月27日(週六晚)開始,12月30日(週二午)結束 地點:Pheasant Run Resort (4051 East Main St., St. Charles, IL 60174)<br />
                 </p>
@@ -73,12 +73,12 @@
                     Bensenville, IL 60106
                 </p>
                 <p>Thank you for your generous heart!</p>
-                <p>CCCC 2014 &#38; GRACE 2014 Coordinators</p>
+                <p>CCCC 2016 &#38; GRACE 2016 Coordinators</p>
                 <br/>
             </div>
             <div id="footer" align="center">
                 <p>
-                    <b><span style='font-size:11.0pt;'>Be sure to visit <a href="javascript:void(0)" onclick="window.open('http://www.cccm.ws/CCCM/cccmcccc.html', 'CCCC', 'height=500,width=700,menubar=yes,toolbar=yes,directories=yes,location=yes,resizable=yes,scrollbars=yes');">http://www.cccm.ws/CCCM/cccmcccc.html</a> for all the latest updates for CCCC 2014.</span></b>
+                    <b><span style='font-size:11.0pt;'>Be sure to visit <a href="javascript:void(0)" onclick="window.open('http://www.cccm.ws/CCCM/cccmcccc.html', 'CCCC', 'height=500,width=700,menubar=yes,toolbar=yes,directories=yes,location=yes,resizable=yes,scrollbars=yes');">http://www.cccm.ws/CCCM/cccmcccc.html</a> for all the latest updates for CCCC 2016.</span></b>
                 </p>
             </div>
         </div>
