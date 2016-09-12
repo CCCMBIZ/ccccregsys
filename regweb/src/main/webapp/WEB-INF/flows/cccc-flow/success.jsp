@@ -11,7 +11,7 @@
         <p>亲爱的弟兄姊妹Dear brother/sister</p>
         <br/>
         <p>
-            谢谢您报名参加芝加哥華人基督徒大會2015！您在网上报名的大会为：${form.formID}。您注册的详细资料如下：Thank you for registering for Chicago Chinese Christian Conference!
+            谢谢您报名参加芝加哥華人基督徒大會2016！您在网上报名的大会为：${form.formID}。您注册的详细资料如下：Thank you for registering for Chicago Chinese Christian Conference!
         </p>
         <br/>
         <br/>
@@ -51,7 +51,7 @@
         <h3><span class="Heading3Char">奉献Donation</span>:</h3>
         <p>
             大會開支約1/4 來自報名費，其餘尚需會眾與教會奉献補足。支票抬頭請寫CCCM <br/>
-            Registration fee covers only 25% of the conference expenses and operational costs which depend largely on your generous donations. You can make your tax deductible contribution to CCCC 2015 and/or GRACE 2015 by making a separate check to CCCM and please mail it to the address listed below.
+            Registration fee covers only 25% of the conference expenses and operational costs which depend largely on your generous donations. You can make your tax deductible contribution to CCCC 2016 and/or GRACE 2016 by making a separate check to CCCM and please mail it to the address listed below.
         </p>
         <br/>
         <p>
@@ -63,7 +63,7 @@
         </p>
         <br/>
         <p>Thank you for your generous heart!
-            CCCC/GRACE 2015 Coordinators</p>
+            CCCC/GRACE 2016 Coordinators</p>
         <br/>
     </div>
     <p>

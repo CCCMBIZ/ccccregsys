@@ -254,7 +254,7 @@ public class ConfirmationController {
                 params.put("sender", eventMailSender);
             }
 
-            String template = "CCCC_2015_Registration_Confirmation.html";
+            String template = "CCCC_2016_Registration_Confirmation.html";
             if (eventMailTemplate != null) {
                 template = eventMailTemplate;
             }
