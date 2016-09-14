@@ -15,6 +15,7 @@
             <tr>
                 <td align="left" valign="top" width="150" class="normal_text" colspan="2">
                     家長或聯絡人資料(以下資料務必填寫，以便聯絡)<br/>
+                    Parent/Guardian Info (Be sure to fill all mandatory contact info as requested below)<br/> 
                     <hr style="width: 100%; height: 2px;"/> 
                 </td>
             </tr>

@@ -25,7 +25,7 @@
     <body class="tundra">
         <div id="page" class="container">
             <div align="center">
-                <img src="<c:url value="/resources/styles/images/ccccbanner.jpg" />" width="785" height="88" alt="芝加哥2016華人基督徒大會 网上报名" align="center"/>
+                <img src="<c:url value="/resources/styles/images/ccccgracebanner.jpg" />" width="785" height="88" alt="芝加哥2016華人基督徒大會 网上报名" align="center"/>
                 <br/>
                 <hr/>
             </div>

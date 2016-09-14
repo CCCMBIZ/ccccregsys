@@ -103,7 +103,7 @@
     </action-state>
     
     <view-state id="review" model="form" view="cccc/review">
-        <transition on="previous" to="seminarOrNot" validate="false"/>
+        <transition on="previous" to="mealPlan" validate="false"/>
         <transition on="next" to="payment"/>
         <transition on="cancel" to="reviewCancelDialog" validate="false"/>
         <transition on="success" to="success"/>

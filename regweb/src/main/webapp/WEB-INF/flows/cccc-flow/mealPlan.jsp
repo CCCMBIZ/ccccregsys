@@ -25,9 +25,9 @@
                     <td class="xl70" style="height: 35.25pt; font-weight: bold;" height="47">Breakfast $5</td>
                     <td class="xl67">&nbsp;</td>
                     <td class="xl68" style="width: 128px; font-family: monospace;">&nbsp;</td>
-                    <td class="xl66" style="width: 129px;">&nbsp;&nbsp;(粥,牛奶,水果,中式麵包)</td>
-                    <td class="xl66" style="width: 127px;">&nbsp;&nbsp;(粥,牛奶,水果,中式麵包)</td>
-                    <td class="xl66" style="width: 123px;">&nbsp;&nbsp;(粥,牛奶,水果,中式麵包)</td>
+                    <td class="xl66" style="width: 129px;">&nbsp;&nbsp;(粥,牛奶,水果,中式麵包Porridge , milk, fruit , Chinese bread)</td>
+                    <td class="xl66" style="width: 127px;">&nbsp;&nbsp;(粥,牛奶,水果,中式麵包Porridge , milk, fruit , Chinese bread)</td>
+                    <td class="xl66" style="width: 123px;">&nbsp;&nbsp;(粥,牛奶,水果,中式麵包Porridge , milk, fruit , Chinese bread)</td>
                 </tr>
                 <tr style="height: 6pt;">
                     <td style="height: 6pt;" height="8">&nbsp;</td>
