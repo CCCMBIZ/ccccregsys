@@ -49,8 +49,12 @@
         <br/>
         <h3><span class="Heading3Char">住宿Lodging Reservation</span>:</h3>
         <p>
-            請在 12/17 前直接向 Pheasant Run Resort 旅館訂房與繳費，每房（可住 1~4 人）每晚 $65(稅後)，先訂先得；大會不負責房間登記。訂房時，請電 1-800-474-3272 指名 “CCCM Group” 以享受大會優惠，或上網 <a href="javascript:void(0)" onclick="window.open('https://bookings.ihotelier.com/bookings.jsp?groupID=1426870&hotelID=2932', 'Pheasant Run Resort', 'height=500,width=700,menubar=yes,toolbar=yes,directories=yes,location=yes,resizable=yes,scrollbars=yes');">Pheasant Run Resort Hotel Reservation</a>  連線至旅館，以享受大會優惠。若有問題請電 847-868-2226 (葉麗玲)。
+            大會不負責房間登記。請在12/18前直接向The Westin Lombard Yorktown Center旅館訂房與繳費，每房（可住1~4人）每晚&nbsp;$69(稅後)，先訂先得。訂房時，請電<a href="tel:630-719-8000">630-719-8000</a>指名參加Chicago Chinese Christian Conference以享受大會優惠，或上網&nbsp;<a href="http://www.cccm.ws/">www.cccm.ws</a>&nbsp;連線至旅館。若有問題請電<a href="tel:847-868-2226">847-868-2226</a>&nbsp;(葉麗玲)。
         </p>
+        <p>
+            To book hotel rooms, please contact and pay directly to <strong>The Westin Lombard Yorktown Center</strong> before 12/18/2016, at the discount room rate of $69.00 (tax included, 1~4 people per room per night). You may either&nbsp;call <a href="tel:630-719-8000">630-719-8000</a> and claim as attendees of the <strong>Chicago Chinese Christian Conference</strong> to take this conference discount rate, or book online by connecting to the hotel website&nbsp;from&nbsp;<a href="http://www.cccm.ws">www.cccm.ws</a>. For any questions please call <a href="tel:847-868-2226">847-868-2226</a>&nbsp;(<strong>Ms. Lillian</strong>).
+        </p>
+        <br/>
         <h3><span class="Heading3Char">申請補助Financial Support</span>:</h3>
         <p>
             申請補助金者，請直接與葛甦姊妹聯繫(su6yliu@gmail.com)

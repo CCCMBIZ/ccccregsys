@@ -127,6 +127,11 @@
                                     <c:when test= "${vgrade == '8th' }" > <c:set var="vgrade" value="八年级" /></c:when>
                                     <c:when test= "${vgrade == '7th' }" > <c:set var="vgrade" value="七年级" /></c:when>
                                     <c:when test= "${vgrade == '6th' }" > <c:set var="vgrade" value="六年级" /></c:when>
+                                    <c:when test= "${vgrade == '5th' }" > <c:set var="vgrade" value="五年级" /></c:when>
+                                    <c:when test= "${vgrade == '4th' }" > <c:set var="vgrade" value="四年级" /></c:when>
+                                    <c:when test= "${vgrade == '3rd' }" > <c:set var="vgrade" value="三年级" /></c:when>
+                                    <c:when test= "${vgrade == '2nd' }" > <c:set var="vgrade" value="二年级" /></c:when>
+                                    <c:when test= "${vgrade == '1st' }" > <c:set var="vgrade" value="一年级" /></c:when>
                                     <c:when test= "${vgrade == 'EL' }" > <c:set var="vgrade" value="小学生" /></c:when>
                                     <c:when test= "${vgrade == 'TO' }" > <c:set var="vgrade" value="幼儿" /></c:when>
                                     <c:when test= "${vgrade == 'O' }" > <c:set var="vgrade" value="其他" /></c:when>
@@ -148,10 +153,11 @@
                             <td>參加聚會 Attend Event:</td>
                             <td>
                                 <c:set var="vlanguage" value="${registrant.person.preferredLanguage}" />
-                                <c:if test= "${vlanguage == 'M' }" > <c:set var="vlanguage" value="Mandarin國" /></c:if>
-                                <c:if test= "${vlanguage == 'C' }" > <c:set var="vlanguage" value="Children童" /></c:if>
-                                <c:if test= "${vlanguage == 'E' }" > <c:set var="vlanguage" value="English英" /></c:if>
-                                <c:if test= "${vlanguage == 'T' }" > <c:set var="vlanguage" value="Nursery幼" /></c:if>
+                                <c:if test= "${vlanguage == 'M' }" > <c:set var="vlanguage" value="中文大会" /></c:if>
+                                <c:if test= "${vlanguage == 'E' }" > <c:set var="vlanguage" value="GRACE" /></c:if>
+                                <c:if test= "${vlanguage == 'C' }" > <c:set var="vlanguage" value="1-5th" /></c:if>
+                                <c:if test= "${vlanguage == 'K' }" > <c:set var="vlanguage" value="Pre-K" /></c:if>
+                                <c:if test= "${vlanguage == 'T' }" > <c:set var="vlanguage" value="Toddlers"/></c:if>
                                 ${vlanguage}
                             </td>
                         </tr>

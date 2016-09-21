@@ -20,7 +20,7 @@
                     <th rowspan="2">英文姓 Last Name</th>
                     <th rowspan="2">性別 Gender</th>
                     <th rowspan="2">年齡 Age</th>
-                    <th rowspan="2">參加聚會</th>
+                    <th rowspan="2">參加聚會Attend</th>
                     <th rowspan="2">服事 Status</th>
                     <th rowspan="2">信仰 </th>
                     <th rowspan="2">(年)</th>
@@ -58,10 +58,11 @@
                         <td>
                             <form:select id="language${registrant.index}" path="registrants[${registrant.index}].person.preferredLanguage">
                                 <form:option value="" label="-- 參加 --"/>
-                                <form:option value="M" label="Mandarin國"/>
-                                <form:option value="E" label="English英"/>
-                                <form:option value="C" label="Children童"/>
-                                <form:option value="T" label="Nursery幼"/>
+                                <form:option value="M" label="中文大会"/>
+                                <form:option value="E" label="GRACE"/>
+                                <form:option value="C" label="1-5th"/>
+                                <form:option value="K" label="Pre-K"/>
+                                <form:option value="T" label="Toddlers"/>
                             </form:select>
                         </td>
                         <td>
@@ -102,20 +103,43 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="14"><span class="style1">請務必填寫每欄空格。If  you wish to attend English-speaking   College and Adult  Program, you must please check the language preference box. Thanks.</span>
-                        <p class="smalltext">
-                            1)姓名表格"1" 代表是"主要報名者",請在表格內填寫"主要報名者"的聯絡資料,註冊訊息或大會資料將直接寄給他.一家人請填寫在同一張報名表內;個人報名者,請個別、單獨填寫一張報名表。<br/>
-                            2)年齡：成人請填A2(18-29),A3(30-39),A4(40-49),A5(50-59),A6(60+);兒童(3-11歲)與青少年(12-17歲)請填實際年齡,以便分班.<br/>
-                            3)青少年或孩童(4-17歲)若未有父母陪同而欲來參加大會，必須繳交permissionslip，細則請上www.cccm.ws.<br/>
-                            4)參加聚會：按每人的年齡與需要勾選將參加的聚會。中(中文成人)、英(Grace 2015)、童(兒童節目)、幼(幼兒看顧).<br/>
-                            5)服事： F（全職傳道）、P（教會牧者）、T（神學生）、N（機構同工）、C（校園同工）、E（教會長執）、S（小組或團契同工）
-                            6)信仰：已信主受洗者請在第二格打勾( ),並填上（信主年數.未信者請在第一格打勾( )<br/>
-                        </p>
+                    <td colspan="14">
+                        <hr style="width: 100%; height: 2px;">
                     </td>
                 </tr>
+
+                <tr>
+                    <td colspan="14">
+                        <h4><strong>填表說明 </strong><strong>Instructions:</strong></h4>
+                        <p><strong>1)</strong>&nbsp;<strong>年齡 </strong><strong>Age:</strong></p>
+                        <p style="padding-left: 30px;"><strong>成人請填 </strong><strong>Adults: Please select from:</strong><strong>A2</strong>(18-29),<strong>A3</strong>(30-39),<strong>A4</strong>(40-49),<strong>A5</strong>(50-59),<strong>A6</strong>(60+)</p>
+                        <p style="padding-left: 30px;"><strong>兒童 </strong><strong>Children (</strong><strong>3yr-5th</strong><strong>) /</strong><strong>青少年 </strong><strong>Youth (</strong><strong>6th-17yr</strong><strong>):&nbsp;</strong>請填實際年齡Please fill in the actual age.</p>
+                        <p><strong>2)</strong>&nbsp;&nbsp;&nbsp;&nbsp; <strong>青少年或孩童 </strong><strong>Children/Youth (</strong><strong>3</strong><strong>-17):</strong></p>
+                        <p style="padding-left: 30px;">若未有父母陪同而欲來參加大會，必須繳交permission slip，細則請上<a href="http://www.cccm.ws/">www.cccm.ws</a></p>
+                        <p style="padding-left: 30px;">A signed <strong>Permission Slip</strong> will be required during check-in for those attendees without companion of parents. See <a href="http://www.cccm.ws/">www.cccm.ws</a> for details.</p>
+                        <p><strong>3)</strong>&nbsp;<strong>參加聚會 </strong><strong>Workshops:</strong></p>
+                        <p style="padding-left: 30px;">按每人的年齡與需要勾選將參加的聚會</p>
+                        <p style="padding-left: 30px;">Please select the ones best fit your interest, age and need.</p>
+                        <p><strong>4) 服事(Serving Roles)：</strong></p>
+                        <p style="padding-left: 30px;"><strong>F</strong>（全職傳道 &ndash; Full time pastor/missionary）、<strong>P</strong>（教會牧者 &ndash; Church pastor）、<strong>T</strong>（神學生 - Theological seminary student）、<strong>N</strong>（機構同工 &ndash; Christian organization staff）、<strong>C</strong>（校園同工 &ndash; Campus worker）、<strong>E</strong>（教會長執 &ndash; Church leadership team member）、<strong>S</strong>（小組或團契同工 &ndash; Small group/fellowship&nbsp; coworkers）</p>
+                        <p><strong>5)&nbsp;信仰 Faith:</strong></p>
+                        <p style="padding-left: 30px;">已信主者請在第二格打勾（&uuml;），並填上（信主年數）。</p>
+                        <p style="padding-left: 30px;">For believers, please check the second box with （&uuml;）, and fill in the number of years as a disciple.</p>
+                        <p style="padding-left: 30px;">未信者請在第一格打勾（&uuml;）。</p>
+                        <p style="padding-left: 30px;">Non-believers or seekers please check the first box（&uuml;）.</p>
+                        <p><strong>6)&nbsp;大會招募義工 Volunteers needed for the conference: </strong></p>
+                        <p style="padding-left: 30px;">1（飯食 &ndash; Meal service）、2（招待 &ndash;&nbsp;Usher &amp; reception desk）、3（兒童- Childcare）、4（禱告 &ndash; Prayer group）、5（粵語翻譯 &ndash; Cantonese interpreter）、6（英語翻譯 &ndash; English interpreter）。</p>
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="14">
+                        <hr style="width: 100%; height: 2px;">
+                    </td>
+                </tr>
+
             </tbody>
         </table>
-        <hr style="width: 80%; height: 2px;">
         <button id="cancel" type="submit" name="_eventId_cancel">Cancel</button>
         <button id="previous" type="submit" name="_eventId_previous">&lt;&lt; Previous</button>
         <button id="next" type="submit" name="_eventId_next">Next &gt;&gt;</button>

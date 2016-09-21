@@ -15,17 +15,15 @@
                         <td style="vertical-align: top; width: 200px;">
                             ${form.registrants[registrant.index].person.firstName} &#160; ${form.registrants[registrant.index].person.lastName} &#160; ${form.registrants[registrant.index].person.chineseName}
                         </td>
-                        <td style="vertical-align: top; width: 200px;">
-                            <p>招待 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="USHERS"/></p>
-                            <p>幼儿看顾 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="NURSERY_HELPER"/></p>
-                            <p>翻译 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="INTERPRETER"/></p>
+                        <td style="vertical-align: top; width: 100px;">
                             <p>飯食 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="FOOD_SERVICE"/></p>
+                            <p>招待 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="USHERS"/></p>
+                            <p>兒童 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="NURSERY_HELPER"/></p>
                         </td>
                         <td style="vertical-align: top; width: 400px;">
-                            <p>陪谈 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="FOLLOWUP"/></p>
-                            <p>交通 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="TRANSPORTATION"/></p>
-                            <p>医疗 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="MEDICAL_SUPPORT"/></p>
                             <p>禱告 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="PRAYER_TEAM"/></p>
+                            <p>粵語翻譯 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="CANTONESE_INTERPRETER"/></p>
+                            <p>英語翻譯 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="ENGLISH_INTERPRETER"/></p>
                         </td>
                     </tr>
                     <tr>
