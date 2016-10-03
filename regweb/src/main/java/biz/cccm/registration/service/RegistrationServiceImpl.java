@@ -4,6 +4,7 @@
  */
 package biz.cccm.registration.service;
 
+import biz.cccm.registration.dao.ChurchDao;
 import biz.cccm.registration.dao.GenericJPADao;
 import biz.cccm.registration.dao.PaymentDao;
 import biz.cccm.registration.dao.exceptions.RollbackFailureException;
@@ -11,6 +12,7 @@ import biz.cccm.registration.domain.PaymentMethod;
 import biz.cccm.registration.domain.Registrant;
 import biz.cccm.registration.domain.RegistrationForm;
 import biz.cccm.registration.domain.Server;
+import biz.cccm.registration.model.Church;
 import biz.cccm.registration.model.Family;
 import biz.cccm.registration.model.Person;
 import biz.cccm.registration.model.Profile;
@@ -47,6 +49,8 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Autowired
     private PaymentDao paymentDao;
     @Autowired
+    private ChurchDao churchDao;
+    @Autowired
     private MailEngine mailEngine;
 
     /**
@@ -61,11 +65,6 @@ public class RegistrationServiceImpl implements RegistrationService {
         // Check if same registration number already exist, cancel and resubmit
         // to avoid duolication
         cancel(form.getFormID().toString());
-
-        Family family = form.getAddress();
-        logger.debug(family.getHomeAddress());
-
-        familyDao.create(family);
 
         Mealplan mealPlan = new Mealplan();
         mealPlan.setRegistrationID(form.getFormID().toString());
@@ -82,6 +81,15 @@ public class RegistrationServiceImpl implements RegistrationService {
         mealPlan.setDinner3(0);
         mealPlan.setDinner4(0);
 
+        // Family
+        Family family = form.getAddress();
+        logger.debug(family.getHomeAddress());
+        if (form.getRegistrants().get(0) != null) {
+            family.setFamilyName(form.getRegistrants().get(0).getPerson().getLastName());
+        }
+        familyDao.create(family);
+
+        // Person / profile
         Iterator<Registrant> it = form.getRegistrants().iterator();
         while (it.hasNext()) {
 
@@ -126,7 +134,9 @@ public class RegistrationServiceImpl implements RegistrationService {
             logger.debug("WillingToAttendCCCMTraining:" + person.getWillingToAttendCCCMTraining());
             logger.debug("WillingToBeVolunteer:" + person.getWillingToBeVolunteer());
             logger.debug("WorkPhone:" + person.getWorkPhone());
-            person.setFamilyID(family.getFamilyID());
+
+            person.setChurchID(form.getChurchID().intValue());
+            person.setFamilyID(form.getAddress().getFamilyID());
             person.setLastModified(new Date());
 
             personDao.create(person);
@@ -134,6 +144,7 @@ public class RegistrationServiceImpl implements RegistrationService {
             logger.debug("Person ID:" + person.getPersonID());
             logger.debug("Family ID:" + person.getFamilyID());
 
+            // Profile
             Profile profile = new Profile();
 
             if (form.getChurchName() != null) {
@@ -146,43 +157,60 @@ public class RegistrationServiceImpl implements RegistrationService {
             if (form.getAddress().getHotel() != null) {
                 profile.setNeedHotel(form.getAddress().getHotel());
             }
+            profile.setPreferredLanguage(person.getPreferredLanguage());
 
-//            String seminar = "";
-//            if (!registrant.getSeminar().getSession1().isEmpty()) {
-//                seminar += registrant.getSeminar().getSession1();
-//            }
-//            if (!registrant.getSeminar().getSession2().isEmpty()) {
-//                if (!seminar.isEmpty()) {
-//                    seminar += "|";
-//                }
-//                seminar += registrant.getSeminar().getSession2();
-//            }
-//            profile.setWorkshop1(seminar);
+            if (!person.getAcceptedChrist()) {
+                profile.setSeeker(true);
+            }
 
-//            seminar = "";
-//            if (!registrant.getSeminar().getSession3().isEmpty()) {
-//                seminar += registrant.getSeminar().getSession3();
-//            }
-//            if (!registrant.getSeminar().getSession4().isEmpty()) {
-//                if (!seminar.isEmpty()) {
-//                    seminar += "|";
-//                }
-//                seminar += registrant.getSeminar().getSession4();
-//            }
-//            profile.setWorkshop2(seminar);
+            if (registrant.getSeminar() != null) {
+                String seminar = "";
+                if (registrant.getSeminar().getSession1() != null && !registrant.getSeminar().getSession1().isEmpty()) {
+                    seminar += registrant.getSeminar().getSession1();
+                }
+                if (registrant.getSeminar().getSession2() != null && !registrant.getSeminar().getSession2().isEmpty()) {
+                    if (!seminar.isEmpty()) {
+                        seminar += "|";
+                    }
+                    seminar += registrant.getSeminar().getSession2();
+                }
+                profile.setWorkshop1(seminar);
 
-//            if (registrant.getVolunteerJobs() != null) {
-//                for (Server serve : registrant.getVolunteerJobs()) {
-//                    if (profile.getVolunteerJobs() == null || profile.getVolunteerJobs().isEmpty()) {
-//                        profile.setVolunteerJobs(serve.name());
-//                    } else {
-//                        String volunteerJobs = profile.getVolunteerJobs();
-//                        volunteerJobs += "|";
-//                        volunteerJobs += serve.name();
-//                        profile.setVolunteerJobs(volunteerJobs);
-//                    }
-//                }
-//            }
+                seminar = "";
+                if (registrant.getSeminar().getSession3() != null && !registrant.getSeminar().getSession3().isEmpty()) {
+                    seminar += registrant.getSeminar().getSession3();
+                }
+                if (registrant.getSeminar().getSession4() != null && !registrant.getSeminar().getSession4().isEmpty()) {
+                    if (!seminar.isEmpty()) {
+                        seminar += "|";
+                    }
+                    seminar += registrant.getSeminar().getSession4();
+                }
+                profile.setWorkshop2(seminar);
+            }
+            if (registrant.getVolunteerJobs() != null) {
+                for (Server serve : registrant.getVolunteerJobs()) {
+                    if (profile.getVolunteerJobs() == null || profile.getVolunteerJobs().isEmpty()) {
+                        profile.setVolunteerJobs(serve.name());
+                    } else {
+                        String volunteerJobs = profile.getVolunteerJobs();
+                        volunteerJobs += "|";
+                        volunteerJobs += serve.name();
+                        profile.setVolunteerJobs(volunteerJobs);
+                    }
+                }
+            }
+
+            if (person.getMisc1() != null) {
+                int yr = 0;
+                try {
+                    yr = Integer.parseInt(person.getMisc1());
+                } catch (NumberFormatException e) {
+                    yr = 0;
+                }
+                profile.setFaithYear(yr);
+            }
+
             profile.setRegisteredDate(form.getRegistrationDate());
             profile.setLastModified(new Date());
 
@@ -214,8 +242,10 @@ public class RegistrationServiceImpl implements RegistrationService {
             mealPlan.setDinner4(mealPlan.getDinner4() + (registrant.getMealplan().getDinner4() == null ? 0 : registrant.getMealplan().getDinner4()));
         }
 
+        // Mealplan
         mealplanDao.create(mealPlan);
 
+        // Payment
         Payment payment = new Payment();
 
         payment.setCash(Boolean.FALSE);
@@ -263,6 +293,11 @@ public class RegistrationServiceImpl implements RegistrationService {
             java.util.logging.Logger.getLogger(RegistrationServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    @Override
+    public Church getChurchByID(Integer churchID) {
+        return churchDao.get(churchID);
     }
 
     @Override

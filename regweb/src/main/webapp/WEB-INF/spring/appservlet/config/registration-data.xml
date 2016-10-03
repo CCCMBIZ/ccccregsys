@@ -24,9 +24,9 @@
         <entry key="ADULTREGISTRATION3" value="201612,2016-12-13T00:00:00Z,18,0,ADULTREGISTRATION3,Late registration,USD,60.0"/>
         <entry key="LUNCH1"             value="201612,2016-12-31T00:00:00Z,0,0,LUNCH1,Lunch Fee,USD,6.0"/>
         <entry key="DINNER1"            value="201612,2016-12-31T00:00:00Z,0,0,DINNER1,Dinner Fee,USD,9.0"/>
-        <entry key="NONADULTREGISTRATION1" value="201612,2016-11-01T00:00:00Z,4,0,NONADULTREGISTRATION1,Early bird registration fee,USD,10.0"/>
-        <entry key="NONADULTREGISTRATION2" value="201612,2016-11-29T00:00:00Z,4,0,NONADULTREGISTRATION2,Regular registration fee,USD,20.0"/>
-        <entry key="NONADULTREGISTRATION3" value="201612,2016-12-13T00:00:00Z,3,0,NONADULTREGISTRATION3,Late registration,USD,30.0"/>
+        <entry key="NONADULTREGISTRATION1" value="201612,2016-11-01T00:00:00Z,12,0,NONADULTREGISTRATION1,Early bird registration fee,USD,10.0"/>
+        <entry key="NONADULTREGISTRATION2" value="201612,2016-11-29T00:00:00Z,12,0,NONADULTREGISTRATION2,Regular registration fee,USD,20.0"/>
+        <entry key="NONADULTREGISTRATION3" value="201612,2016-12-13T00:00:00Z,12,0,NONADULTREGISTRATION3,Late registration,USD,30.0"/>
         <entry key="BREAKFAST1"         value="201612,2016-12-31T00:00:00Z,0,0,BREAKFAST1,Lunch Fee,USD,5.0"/>
     </util:map>
           

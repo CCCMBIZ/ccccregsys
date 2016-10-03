@@ -4,7 +4,7 @@
     <br/>
 </div>
 <div id="embeddedFlow"  class="span-18">
-    <p class="notice">Pay by CREDIT</p>
+    <p class="notice">Step 6 - Pay by Credit</p>
     <hr style="width: 80%; height: 2px;">
     <div id="content" align="left">
         <h3>Pay by CREDIT CARD or PayPal 付款方式：信用卡或PayPal</h3>

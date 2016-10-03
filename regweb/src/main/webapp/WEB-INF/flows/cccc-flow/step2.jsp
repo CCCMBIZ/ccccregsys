@@ -5,7 +5,7 @@
     <br/>
 </div>
 <div id="embeddedFlow" class="span-18"> 
-    <p class="notice"><b>2. 请输入主报人的姓名和家庭地址<br>step 2 - Enter individual information</b><br></p>
+    <p class="notice"><b>2. 请输入主报人的姓名和家庭地址<br>Step 2 - Enter individual information</b><br></p>
 
     <li><font color='red'>有 * 号的拦目务必填写 (* indicates required field) <br></font></li>
 
@@ -15,7 +15,7 @@
             <tr>
                 <td align="left" valign="top" width="150" class="normal_text" colspan="2">
                     家長或聯絡人資料(以下資料務必填寫，以便聯絡)<br/>
-                    Parent/Guardian Info (Be sure to fill all mandatory contact info as requested below)<br/> 
+                    Please enter primary registrant information below.  Additional people can be added to this registration in Step 3<br/> 
                     <hr style="width: 100%; height: 2px;"/> 
                 </td>
             </tr>
@@ -83,7 +83,7 @@
                 </td>
             </tr>
             <tr>
-                <td align="left" valign="top" width="150" class="normal_text">聯絡電話 *</td>
+                <td align="left" valign="top" width="150" class="normal_text">聯絡電話 Contact Phone Number*</td>
                 <td class="normal_text">
                     <form:errors path="address.homePhone" cssClass="fieldError"/>
                     <br/>
@@ -95,14 +95,14 @@
                 <td colspan="2"><br/></td>
             </tr>
             <tr>
-                <td align="left" width="150" class="normal_text">電郵 *</td>
+                <td align="left" width="150" class="normal_text">電郵 Email Address *</td>
                 <td class="normal_text">
                     <form:errors path="address.misc1" cssClass="fieldError"/><br/>
                     <form:input id="email" path="address.misc1" name="email" size="25" maxlength="50"/>
                 </td>
             </tr>
             <tr>
-                <td width="250" align="left" class="normal_text">確認電郵 *</td>
+                <td width="250" align="left" class="normal_text">確認電郵 Confirm Email Address *</td>
                 <td class="normal_text">
                     <form:errors path="address.misc2" cssClass="fieldError"/><br/>
                     <form:input id="confirmEmail" path="address.misc2" name="emailConfirm" size="25" maxlength="50"/>

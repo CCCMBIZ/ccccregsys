@@ -5,7 +5,7 @@
     <br/>
 </div>
 <div id="embeddedFlow" class="span-18"> 
-    <p class="notice"><b>Order Meals 勾選餐點</b><br></p>
+    <p class="notice"><b>4. 勾選餐點</b><br>Step 4 - Order Meals </p>
 
     <form:form id="mealPlan" action="${flowExecutionUrl}" modelAttribute="form" acceptCharset="UTF-8">
 

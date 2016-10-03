@@ -13,6 +13,7 @@ import biz.cccm.registration.domain.PaymentProvider;
 import biz.cccm.registration.domain.Registrant;
 import biz.cccm.registration.domain.RegistrationForm;
 import biz.cccm.registration.domain.Seminar;
+import biz.cccm.registration.model.Church;
 import biz.cccm.registration.model.Event;
 import biz.cccm.registration.model.Mealplan;
 import biz.cccm.registration.model.Person;
@@ -24,6 +25,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -62,7 +64,7 @@ public class RegistrationController {
         RegistrationForm registrationForm = new RegistrationForm();
 
         Event event = new Event();
-        event.setName("Chicago Chinese Christian Conference 2015");
+        event.setName("Chicago Chinese Christian Conference & GRACE Conference 2016");
         event.setContactEmail("registration@cccm.ws");
         registrationForm.setEvent(event);
 
@@ -75,11 +77,12 @@ public class RegistrationController {
         List<LabelValue> ageGroup;
         ageGroup = new ArrayList<LabelValue>();
 
-        ageGroup.add(new LabelValue("18-29", "A2"));
-        ageGroup.add(new LabelValue("30-39", "A3"));
-        ageGroup.add(new LabelValue("40-49", "A4"));
-        ageGroup.add(new LabelValue("50-59", "A5"));
         ageGroup.add(new LabelValue("60+", "A6"));
+        ageGroup.add(new LabelValue("50-59", "A5"));
+        ageGroup.add(new LabelValue("40-49", "A4"));
+        ageGroup.add(new LabelValue("30-39", "A3"));
+        ageGroup.add(new LabelValue("18-29", "A2"));
+
         ageGroup.add(new LabelValue("17", "17"));
         ageGroup.add(new LabelValue("16", "16"));
         ageGroup.add(new LabelValue("15", "15"));
@@ -193,14 +196,14 @@ public class RegistrationController {
         statusGroup.add(new LabelValue("Senior High - Jr", "11th"));
         statusGroup.add(new LabelValue("Senior High - So", "10th"));
         statusGroup.add(new LabelValue("Senior High - Fr", "9th"));
-        statusGroup.add(new LabelValue("Junior High - 6th grade", "6th"));
-        statusGroup.add(new LabelValue("Junior High - 7th grade", "7th"));
         statusGroup.add(new LabelValue("Junior High - 8th grade", "8th"));
-        statusGroup.add(new LabelValue("1st grade", "1st"));
-        statusGroup.add(new LabelValue("2nd grade", "2nd"));
-        statusGroup.add(new LabelValue("3rd grade", "3rd"));
-        statusGroup.add(new LabelValue("4th grade", "4th"));
+        statusGroup.add(new LabelValue("Junior High - 7th grade", "7th"));
+        statusGroup.add(new LabelValue("Junior High - 6th grade", "6th"));
         statusGroup.add(new LabelValue("5th grade", "5th"));
+        statusGroup.add(new LabelValue("4th grade", "4th"));
+        statusGroup.add(new LabelValue("3rd grade", "3rd"));
+        statusGroup.add(new LabelValue("2nd grade", "2nd"));
+        statusGroup.add(new LabelValue("1st grade", "1st"));
         statusGroup.add(new LabelValue("Kindergarden", "K"));
         statusGroup.add(new LabelValue("Preschool 4yrs", "P4"));
         statusGroup.add(new LabelValue("Preschool 3yrs", "P3"));
@@ -224,14 +227,14 @@ public class RegistrationController {
         statusGroup2.add(new LabelValue("Senior High - Jr", "11th"));
         statusGroup2.add(new LabelValue("Senior High - So", "10th"));
         statusGroup2.add(new LabelValue("Senior High - Fr", "9th"));
-        statusGroup2.add(new LabelValue("Junior High - 6th grade", "6th"));
-        statusGroup2.add(new LabelValue("Junior High - 7th grade", "7th"));
         statusGroup2.add(new LabelValue("Junior High - 8th grade", "8th"));
-        statusGroup2.add(new LabelValue("1st grade", "1st"));
-        statusGroup2.add(new LabelValue("2nd grade", "2nd"));
-        statusGroup2.add(new LabelValue("3rd grade", "3rd"));
-        statusGroup2.add(new LabelValue("4th grade", "4th"));
+        statusGroup2.add(new LabelValue("Junior High - 7th grade", "7th"));
+        statusGroup2.add(new LabelValue("Junior High - 6th grade", "6th"));
         statusGroup2.add(new LabelValue("5th grade", "5th"));
+        statusGroup2.add(new LabelValue("4th grade", "4th"));
+        statusGroup2.add(new LabelValue("3rd grade", "3rd"));
+        statusGroup2.add(new LabelValue("2nd grade", "2nd"));
+        statusGroup2.add(new LabelValue("1st grade", "1st"));
         statusGroup2.add(new LabelValue("Kindergarden", "K"));
         statusGroup2.add(new LabelValue("Preschool 4yrs", "P4"));
         statusGroup2.add(new LabelValue("Preschool 3yrs", "P3"));
@@ -263,8 +266,9 @@ public class RegistrationController {
         stateList = new ArrayList<LabelValue>();
 
         stateList.add(new LabelValue("Illinois", "IL"));
-        stateList.add(new LabelValue("Wisconsin", "WI"));
         stateList.add(new LabelValue("Indiana", "IN"));
+        stateList.add(new LabelValue("Wisconsin", "WI"));
+
         stateList.add(new LabelValue("--------------", "ZZ"));
         stateList.add(new LabelValue("Alabama", "AL"));
         stateList.add(new LabelValue("Alaska", "AK"));
@@ -647,6 +651,22 @@ public class RegistrationController {
         }
     }
 
+    public void generateReview(RegistrationForm form) {
+
+        if (form.getRegistrants().size() > 0 && form.getRegistrants().get(0).getPerson() != null) {
+            form.getRegistrants().get(0).getPerson().setEmail(form.getAddress().getMisc1());
+        }
+        if ((form.getChurchName() == null || form.getChurchName().isEmpty()) && form.getChurchID() != null) {
+            Church ch = registrationService.getChurchByID(form.getChurchID());
+            
+            form.setChurchName(ch.getChurchNameChn() + " " + ch.getChurchNameEng());
+            form.setChurchCity(ch.getCity());
+            form.setChurchState(ch.getState());
+            
+        }
+        calculateFee(form);
+    }
+    
     public void calculateFee(RegistrationForm form) {
 
         String currency;
@@ -710,7 +730,7 @@ public class RegistrationController {
                 regt.setExpense(exp);
             }
             // >>>>>>>>>>>>>>>>>>>>> Registration fee >>>>>>>>>>>>>>>>>>>>> 
-            if (regt.getPerson().getAge().startsWith("A")) {
+            if (regt.getPerson().getAge().startsWith("A") || Integer.parseInt(regt.getPerson().getAge()) >= 14) {
                 regt.getExpense().setTotalRegistrationFee(adultRegistrationFee);
                 regt.getExpense().setAdultHeadcount(1);
                 totalExpense.setAdultHeadcount(totalExpense.getAdultHeadcount() + 1);
@@ -772,16 +792,16 @@ public class RegistrationController {
     }
 
     public boolean isSeminarSignup(List<Registrant> registrants) {
-        
+
         boolean showSeminar = false;
 
         for (Registrant regt : registrants) {
             if (regt.getPerson().getPreferredLanguage().contentEquals("M")) {
-                showSeminar = true ;
+                showSeminar = true;
             }
         }
-        
-        return showSeminar ;
+
+        return showSeminar;
     }
 
     private static boolean isInteger(String s) {

@@ -98,7 +98,7 @@
     </subflow-state>
     
     <action-state id="calculateFee">
-        <evaluate expression="registrationController.calculateFee(form)"  />
+        <evaluate expression="registrationController.generateReview(form)"  />
         <transition to="review" />
     </action-state>
     

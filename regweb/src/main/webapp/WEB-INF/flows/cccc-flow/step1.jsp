@@ -11,8 +11,8 @@
     <br/>
 </div>
 <div id="embeddedFlow" class="span-18">
-    <p class="notice"><b>所屬教會/團契/查經班<br>
-            Church, Fellowship or Bible Study Group affiliation </b></p>
+    <p class="notice"><b>1. 请输入所屬教會/團契/查經班<br>
+            Step 1 - Enter Church, Fellowship or Bible Study Group affiliation information</b></p>
     <li><font color='red'>有 * 号的拦目务必填写 (* indicates required field) <br></font></li>
 
     <form:form id="step1" action="${flowExecutionUrl}" modelAttribute="form" name="step1">

@@ -5,25 +5,33 @@
     <br/>
 </div>
 <div id="embeddedFlow" class="span-18"> 
-    <p class="notice"><b>Recruit Volunteer徵求義工服事</b><br></p>
-        <form:form id="volunteer" action="${flowExecutionUrl}" modelAttribute="form" acceptCharset="UTF-8">
+    <p class="notice"><b>3b. 徵求義工服事<br/>Step 3b – Volunteer Interest</b></p>
+            <form:form id="volunteer" action="${flowExecutionUrl}" modelAttribute="form" acceptCharset="UTF-8">
         <table style="text-align: left; width: 1072px; height: 32px;" border="0"
                cellpadding="2" cellspacing="2">
+
             <tbody>
+                <tr>
+                    <td colspan="3">
+                        請勾選願意服事的岡位<br/>
+                        Please check which area(s) you are interested in serving as a volunteer<br/> 
+                        <hr style="width: 700px; height: 2px;">
+                    </td>
+                </tr>
                 <c:forEach items="${form.registrants}" varStatus="registrant">
                     <tr>
-                        <td style="vertical-align: top; width: 200px;">
+                        <td style="vertical-align: top; width: 50px;">
                             ${form.registrants[registrant.index].person.firstName} &#160; ${form.registrants[registrant.index].person.lastName} &#160; ${form.registrants[registrant.index].person.chineseName}
                         </td>
                         <td style="vertical-align: top; width: 100px;">
-                            <p>飯食 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="FOOD_SERVICE"/></p>
-                            <p>招待 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="USHERS"/></p>
-                            <p>兒童 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="NURSERY_HELPER"/></p>
+                            <p>飯食 – Meal service&nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="FOOD_SERVICE"/></p>
+                            <p>招待 – Usher & reception desk&nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="USHERS"/></p>
+                            <p>兒童 - Childcare&nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="NURSERY_HELPER"/></p>
                         </td>
-                        <td style="vertical-align: top; width: 400px;">
-                            <p>禱告 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="PRAYER_TEAM"/></p>
-                            <p>粵語翻譯 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="CANTONESE_INTERPRETER"/></p>
-                            <p>英語翻譯 &nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="ENGLISH_INTERPRETER"/></p>
+                        <td style="vertical-align: top; width: 200px;">
+                            <p>禱告 – Prayer group&nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="PRAYER_TEAM"/></p>
+                            <p>粵語翻譯 – Cantonese interpreter&nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="CANTONESE_INTERPRETER"/></p>
+                            <p>英語翻譯 – English interpreter&nbsp;<form:checkbox path="registrants[${registrant.index}].volunteerJobs" value="ENGLISH_INTERPRETER"/></p>
                         </td>
                     </tr>
                     <tr>

@@ -5,7 +5,7 @@
     <br/>
 </div>
 <div id="embeddedFlow" class="span-18"> 
-    <p class="notice"><b>Seminar專題講座題目與時間</b><br></p>
+    <p class="notice"><b>專題講座題目與時間Seminar for Chinese conference ONLY</b><br></p>
         <form:form id="seminar" action="${flowExecutionUrl}" modelAttribute="form" acceptCharset="UTF-8">
         <table border="1" cellpadding="0" cellspacing="0" width="100%">
             <tbody>
@@ -27,10 +27,10 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <p style="text-align: center; line-height: 10pt;" align="center">12/28星期一下午</p>
+                        <p style="text-align: center; line-height: 10pt;" align="center">12/29星期4下午</p>
                     </td>
                     <td colspan="3">
-                        <p style="text-align: center; line-height: 10pt;" align="center">12/29星期二下午</p>
+                        <p style="text-align: center; line-height: 10pt;" align="center">12/30星期5下午</p>
                     </td>
                 </tr>
                 <tr>
@@ -59,49 +59,49 @@
                         <td width="99">
                             <form:select path="registrants[${registrant.index}].seminar.session1" multiple="false"> 
                                 <form:option value="" label="-- 專題 --"/> 
+                                <form:option value="F1" label="F1"/> 
+                                <form:option value="G" label="G"/> 
                                 <form:option value="T1" label="T1"/> 
-                                <form:option value="U1" label="U1"/> 
-                                <form:option value="L1" label="L1"/> 
-                                <form:option value="A1" label="A1"/> 
-                                <form:option value="M" label="M"/> 
-                                <form:option value="R" label="R"/>
-                                <form:option value="C" label="C"/> 
+                                <form:option value="X1" label="X1"/> 
+                                <form:option value="C1" label="C1"/> 
+                                <form:option value="N1" label="N1"/>
+                                <form:option value="A" label="A"/> 
                             </form:select><br/>
                         </td>
                         <td width="100">
                             <form:select path="registrants[${registrant.index}].seminar.session2" multiple="false"> 
                                 <form:option value="" label="-- 專題 --"/> 
+                                <form:option value="F2" label="F2"/> 
                                 <form:option value="T2" label="T2"/> 
-                                <form:option value="U2" label="U2"/> 
-                                <form:option value="L2" label="L2"/>
-                                <form:option value="A2" label="A2"/>
-                                <form:option value="N" label="N"/>
-                                <form:option value="W" label="W"/> 
-                                <form:option value="D" label="D"/>
+                                <form:option value="B" label="B"/>
+                                <form:option value="X2" label="X2"/>
+                                <form:option value="C2" label="C2"/>
+                                <form:option value="N2" label="N2"/> 
+                                <form:option value="M" label="M"/>
                             </form:select><br/>
                         </td>
                         <td width="100">
                             <form:select path="registrants[${registrant.index}].seminar.session3" multiple="false"> 
                                 <form:option value="" label="-- 專題 --"/> 
-                                <form:option value="H1" label="H1"/>
-                                <form:option value="K1" label="K1"/>
-                                <form:option value="J1" label="J1"/>
-                                <form:option value="E1" label="E1"/>
-                                <form:option value="Q" label="Q"/>
+                                <form:option value="D" label="D"/>
                                 <form:option value="S" label="S"/>
-                                <form:option value="B" label="B"/>
+                                <form:option value="K" label="K"/>
+                                <form:option value="P1" label="P1"/>
+                                <form:option value="W" label="W"/>
+                                <form:option value="J" label="J"/>
+                                <form:option value="Q" label="K"/>
                             </form:select><br/>
                         </td>
                         <td width="100">
                             <form:select path="registrants[${registrant.index}].seminar.session4" multiple="false"> 
                                 <form:option value="" label="-- 專題 --"/> 
-                                <form:option value="H2" label="H2"/> 
-                                <form:option value="K2" label="K2"/> 
-                                <form:option value="J2" label="J2"/> 
-                                <form:option value="E2" label="E2"/> 
-                                <form:option value="P" label="P"/>
+                                <form:option value="H" label="H"/> 
+                                <form:option value="R" label="R"/> 
+                                <form:option value="E" label="E"/> 
+                                <form:option value="P2" label="P2"/> 
                                 <form:option value="V" label="V"/>
-                                <form:option value="F" label="F"/>
+                                <form:option value="L" label="L"/>
+                                <form:option value="U" label="U"/>
                             </form:select><br/>
                         </td>
                     </tr>
@@ -112,74 +112,104 @@
         <p style="line-height: 12pt;"><b>IV. </b><b>成人中文專題研討表</b>
             每人每一時段請選一專題，在上面專題登記表填入編號。大會將按登記人數和場地容量作最後的分配。(所有信息將在會後製作光碟， 請注意訂購單的服務) 
         </p>
-        <table border="1" cellpadding="0" cellspacing="0" width="666">
+        
+        <p>&nbsp;</p>
+        <table style="height: 582px;"  width="779"  border="1" cellpadding="0" cellspacing="0" >
             <tbody>
-                <tr>
-                    <td width="336">
-                        <p align="center"> 12/28 (Mon) </p>
+                <tr>  
+                    <td colspan="2" width="576">
+                        <h4><strong>12/29 (Thu)</strong></h4>
                     </td>
-                    <td width="330">
-                        <p align="center"> 12/29 (Tue) </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="336">
-                        <p align="center"> <b>專題時段#1 (2:30-3:45pm)</b> </p>
-                    </td>
-                    <td width="330">
-                        <p align="center"> <b>專題時段#3 (2:30-3:45pm)</b> </p>
+                    <td colspan="2" width="576">
+                        <h4><strong>12/30 (Fri)</strong></h4>
                     </td>
                 </tr>
                 <tr>
-                    <td valign="top" width="336">
-                        <p> T1 與90後溝通倫理的問題 (談妮) </p>
-                        <p> U1 你是"神職"人員 (林修榮) </p>
-                        <p> L1 培養子女對性與親密關係的認識 (葉顏瑋茵) </p>
-                        <p> A1 伊斯蘭教的擴展：危機？契機？ (賴木森) </p>
-                        <p> M 生命再燃火花 / 揮別「屬靈老油條」 (杜明達) </p>
-                        <p> R 培養與父母的fu (陳欽文) </p>
-                        <p> C 操練跨文化，處處都得益 (友尼基) </p>
+                    <td width="432">
+                        <p>專題時段#1 (2:30-3:45pm)</p>
                     </td>
-                    <td valign="top" width="330">
-                        <p> H1 和穆同居 (Roy Oksnevad) </p>
-                        <p> K1 婚姻中的理財之道 (林修榮) </p>
-                        <p> J1 面對青少年孩子的憂鬱問题 (葉顏瑋茵) </p>
-                        <p> E1 喚醒沈睡的宣教巨人 (陳天合) </p>
-                        <p> Q 壓力山大!! 怎麼辦？ (談妮) </p>
-                        <p> S 尋找你的ta (陳欽文) </p>
-                        <p> B 未得之民-當今宣教無法迴避的議題 (賴木森) </p>
+                    <td width="144">
+                        <p>專題場地</p>
+                    </td>
+                    <td width="432">
+                        <p>專題時段#3 (2:30-3:45pm)</p>
+                    </td>
+                    <td width="144">
+                        <p>專題場地</p>
                     </td>
                 </tr>
                 <tr>
-                    <td width="336">
-                        <p align="center"> <b>專題時段#2 (4:00-5:15pm)</b> </p>
+                    <td width="432">
+                        <p>F1 從制度面落實教會的聖潔見證-上（林祥源）</p>
+                        <p>G交的出、接的上的事工傳承（朱正中）</p>
+                        <p>T1 幸福選擇題-上（王祈）</p>
+                        <p>X1 危機四伏的靈界探索-上（李前明）</p>
+                        <p>C1 從友誼到佈道-上（滕張佳音）</p>
+                        <p>N1 依靠神清除內在生命的垃圾-上（劉富理）</p>
+                        <p>A 建立教會與校園的夥伴關係（高智浩）</p>
+                        <p>&nbsp;</p>
                     </td>
-                    <td width="330">
-                        <p align="center"> <b>專題時段#4 (4:00-5:15pm)</b> </p>
+                    <td width="144">
+                        <p>尚未確定</p>
+                    </td>
+                    <td width="432">
+                        <p>D 教會新挑戰─北美華人人口結構快速轉變（林祥源）</p>
+                        <p>S 愛火重燃（王祈）</p>
+                        <p>K 如何復興教會的禱告會（劉富理）</p>
+                        <p>P1 與當代及現實接軌的讀經生活-上（賴若瀚）</p>
+                        <p>W 當科學遇到信仰（袁岱青）</p>
+                        <p>J 同工間的衝突與復和（朱正中）</p>
+                        <p>Q 幫助子女面對政治導向的壓力（高智浩）</p>
+                        <p>&nbsp;</p>
+                    </td>
+                    <td width="144">
+                        <p>尚未確定</p>
                     </td>
                 </tr>
                 <tr>
-                    <td valign="top" width="336">
-                        <p> T2 與90後溝通倫理的問題 (談妮) </p>
-                        <p> U2 你是"神職"人員 (林修榮) </p>
-                        <p> L2 培養子女對性與親密關係的認識 (葉顏瑋茵) </p>
-                        <p> A2 伊斯蘭教的擴展：危機？契機？ (賴木森) </p>
-                        <p> N 生命再燃火花 / 治癒「禱告冷感症」 (杜明達) </p>
-                        <p> W 如何向未信的家人傳福音 (張志剛)</p>
-                        <p> D 看，他們踏出了佳美的腳蹤！ (王利民) </p>
+                    <td width="432">
+                        <p>專題時段#2 (4:00-5:15pm)</p>
                     </td>
-                    <td valign="top" width="330">
-                        <p> H2 和穆同居 (Roy Oksnevad) </p>
-                        <p> K2 婚姻中的理財之道 (林修榮) </p>
-                        <p> J2 面對青少年孩子的憂鬱問题 (葉顏瑋茵) </p>
-                        <p> E2 喚醒沈睡的宣教巨人 (陳天合) </p>
-                        <p> P 生命再燃火花 / 熟練「靈命健身操」 (杜明達) </p>
-                        <p> V 福音的"四有" (張志剛) </p>
-                        <p> F 從短宣到長宣的心路歷程 (友尼基) </p>
+                    <td width="144">
+                        <p>專題場地</p>
+                    </td>
+                    <td width="432">
+                        <p>專題時段#4 (4:00-5:15pm)</p>
+                    </td>
+                    <td width="144">
+                        <p>專題場地</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="432">
+                        <p>F2 從制度面落實教會的聖潔見證-下（林祥源）</p>
+                        <p>T2 幸福選擇題-下（王祈）</p>
+                        <p>B 跨越鴻溝&mdash;向年轻世代宣教（梁偉光）</p>
+                        <p>X2 危機四伏的靈界探索-下（李前明）</p>
+                        <p>C2 從友誼到佈道-下（滕張佳音）</p>
+                        <p>N2 依靠神清除內在生命的垃圾-下（劉富理）</p>
+                        <p>M 優化EQ與靈命（朱正中）</p>
+                    </td>
+                    <td width="144">
+                        <p>尚未確定</p>
+                    </td>
+                    <td width="432">
+                        <p>H 北美粵語教會的未來（林祥源）</p>
+                        <p>R 與E世代子女溝通（王祈）</p>
+                        <p>E 讓英文部走出小媳婦的地位（Ronald Rothenburg）</p>
+                        <p>P2 與當代及現實接軌的讀經生活-下（賴若瀚）</p>
+                        <p>V 福音信仰問題解答（李前明、袁岱青）</p>
+                        <p>L 献上&ldquo;厨余&rdquo;祭？！&mdash;事奉的心總體檢（滕張佳音）</p>
+                        <p>U 神與我事業的規劃（朱正中）</p>
+                        <p>&nbsp;</p>
+                    </td>
+                    <td width="144">
+                        <p>尚未確定</p>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <p>&nbsp;</p>
         <hr style="width: 100%; height: 2px;">
         <button id="cancel" type="submit" name="_eventId_cancel">Cancel</button>
         <button id="previous" type="submit" name="_eventId_previous">&lt;&lt; Previous</button>

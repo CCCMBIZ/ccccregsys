@@ -39,7 +39,7 @@ public class RegistrationForm extends BaseObject {
     private Event event;
     private Family address = new Family();
     private ArrayList<Registrant> registrants = new ArrayList<Registrant>();
-    private Long churchID;
+    private Integer churchID;
     private String churchName;
     private String churchCity;
     private String churchState;
@@ -697,7 +697,7 @@ public class RegistrationForm extends BaseObject {
      *
      * @return A Double object (this.churchID)
      */
-    public Long getChurchID() {
+    public Integer getChurchID() {
         return this.churchID;
     }
 
@@ -706,7 +706,7 @@ public class RegistrationForm extends BaseObject {
      *
      * @param ChurchID
      */
-    public void setChurchID(Long ChurchID) {
+    public void setChurchID(Integer ChurchID) {
         this.churchID = ChurchID;
     }
 
