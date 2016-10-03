@@ -58,7 +58,7 @@ public class ChurchJPADaoImpl implements ChurchDao {
 
     @Transactional(readOnly = true)
     @Override
-    public Church get(Long id) {
+    public Church get(Integer id) {
 
         Church c = entityManager.find(Church.class, id);
 
@@ -72,14 +72,14 @@ public class ChurchJPADaoImpl implements ChurchDao {
 
     @Transactional(readOnly = true)
     @Override
-    public boolean exists(Long id) {
+    public boolean exists(Integer id) {
 
         return entityManager.contains(id);
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
     @Override
-    public void remove(Long id) {
+    public void remove(Integer id) {
         entityManager.remove(this.get(id));
     }
 

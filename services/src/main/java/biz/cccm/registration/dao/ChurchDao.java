@@ -8,7 +8,7 @@ import biz.cccm.registration.model.Church;
  *
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
-public interface ChurchDao extends GenericDao<Church, Long> {
+public interface ChurchDao extends GenericDao<Church, Integer> {
 
     /**
      * Gets a list of users ordered by the uppercase version of their username.
@@ -18,7 +18,7 @@ public interface ChurchDao extends GenericDao<Church, Long> {
 
     /**
      * Saves a user's information.
-     * @param user the object to be saved
+     * @param query
      * @return the persisted User object
      */
     List<Church> findChurchesByQuery(String query);
