@@ -8,8 +8,10 @@ import biz.cccm.registration.model.Person;
 import biz.cccm.registration.model.Profile;
 import biz.cccm.registration.service.NotificationService;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -212,14 +214,21 @@ public class ConfirmationController {
                     names += " ";
                     names += person.getLastName();
 
-                    if (person.getAge() != null && !person.getAge().isEmpty()) {
-                        if (person.getAge().startsWith("A")) {
-                            adulttotal++;
-                        } else if (Integer.parseInt(person.getAge()) > 4) {
-                            nonadulttotal++;
-                        } else if (Integer.parseInt(person.getAge()) <= 4) {
-                            nonxadulttotal++;
-                        }
+//                    if (person.getAge() != null && !person.getAge().isEmpty()) {
+//                        if (person.getAge().startsWith("A")) {
+//                            adulttotal++;
+//                        } else if (Integer.parseInt(person.getAge()) > 4) {
+//                            nonadulttotal++;
+//                        } else if (Integer.parseInt(person.getAge()) <= 4) {
+//                            nonxadulttotal++;
+//                        }
+//                    }
+                    if (person.getPreferredLanguage().equalsIgnoreCase("M") || person.getPreferredLanguage().equalsIgnoreCase("E")) {
+                        adulttotal++;
+                    } else if (person.getPreferredLanguage().equalsIgnoreCase("C") || person.getPreferredLanguage().equalsIgnoreCase("K")) {
+                        nonadulttotal++;
+                    } else if (person.getPreferredLanguage().equalsIgnoreCase("T")) {
+                        nonxadulttotal++;
                     }
                 }
 
@@ -268,8 +277,19 @@ public class ConfirmationController {
                 logger.error("Payment Status :" + paymentStatus);
             }
 
-        } catch (Exception e) {
-            logger.fatal(e.getMessage());
+        } catch (IOException | NumberFormatException ex) {
+            logger.fatal("InstantPaymentNotification ERROR:" + ex.getMessage());
+            StringWriter sw = new StringWriter();
+            ex.printStackTrace(new PrintWriter(sw));
+            String stacktrace = sw.toString();
+            logger.debug("InstantPaymentNotification STACK TRACE:" + stacktrace);
+
+        } catch (Exception ex) {
+            logger.fatal("InstantPaymentNotification ERROR:" + ex.getMessage());
+            StringWriter sw = new StringWriter();
+            ex.printStackTrace(new PrintWriter(sw));
+            String stacktrace = sw.toString();
+            logger.debug("InstantPaymentNotification STACK TRACE:" + stacktrace);
         }
     }
 
@@ -317,19 +337,32 @@ public class ConfirmationController {
         Integer lunchTotal = 0;
         Integer dinnerTotal = 0;
         for (Mealplan mplan : meals) {
-            breakfastTotal = (mplan.getBreakfast1() + mplan.getBreakfast2() + mplan.getBreakfast3() + mplan.getBreakfast4() + mplan.getBreakfast5());
-            lunchTotal = (mplan.getLunch1() + mplan.getLunch2() + mplan.getLunch3() + mplan.getLunch4() + mplan.getLunch5());
-            dinnerTotal = (mplan.getDinner1() + mplan.getDinner2() + mplan.getDinner3() + mplan.getDinner4() + mplan.getDinner5());
+
+            breakfastTotal = (mplan.getBreakfast1() != null ? mplan.getBreakfast1() : 0)
+                    + (mplan.getBreakfast2() != null ? mplan.getBreakfast2() : 0)
+                    + (mplan.getBreakfast3() != null ? mplan.getBreakfast3() : 0)
+                    + (mplan.getBreakfast4() != null ? mplan.getBreakfast4() : 0)
+                    + (mplan.getBreakfast5() != null ? mplan.getBreakfast5() : 0);
+            lunchTotal = (mplan.getLunch1() != null ? mplan.getLunch1() : 0)
+                    + (mplan.getLunch2() != null ? mplan.getLunch2() : 0)
+                    + (mplan.getLunch3() != null ? mplan.getLunch3() : 0)
+                    + (mplan.getLunch4() != null ? mplan.getLunch4() : 0)
+                    + (mplan.getLunch5() != null ? mplan.getLunch5() : 0);
+            dinnerTotal = (mplan.getDinner1() != null ? mplan.getDinner1() : 0)
+                    + (mplan.getDinner2() != null ? mplan.getDinner2() : 0)
+                    + (mplan.getDinner3() != null ? mplan.getDinner3() : 0)
+                    + (mplan.getDinner4() != null ? mplan.getDinner4() : 0)
+                    + (mplan.getDinner5() != null ? mplan.getDinner5() : 0);
         }
 
         HashMap<String, String> plan = new HashMap<String, String>();
 
         plan.put("breakfastTotal", breakfastTotal.toString());
-        plan.put("lunchTotal", breakfastTotal.toString());
-        plan.put("dinnerTotal", breakfastTotal.toString());
+        plan.put("lunchTotal", lunchTotal.toString());
+        plan.put("dinnerTotal", dinnerTotal.toString());
 
-        plan.put("breakfastFee", String.valueOf(breakfastTotal * 5.5));
-        plan.put("lunchFee", String.valueOf(lunchTotal * 5.5));
+        plan.put("breakfastFee", String.valueOf(breakfastTotal * 5.0));
+        plan.put("lunchFee", String.valueOf(lunchTotal * 6.0));
         plan.put("dinnerFee", String.valueOf(dinnerTotal * 9.0));
 
         plan.put("mealCount", String.valueOf(breakfastTotal + lunchTotal + dinnerTotal));

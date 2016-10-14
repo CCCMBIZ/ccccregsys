@@ -268,7 +268,7 @@ public class RegistrationController {
         stateList.add(new LabelValue("Illinois", "IL"));
         stateList.add(new LabelValue("Indiana", "IN"));
         stateList.add(new LabelValue("Wisconsin", "WI"));
-
+        stateList.add(new LabelValue("Other", "OT"));
         stateList.add(new LabelValue("--------------", "ZZ"));
         stateList.add(new LabelValue("Alabama", "AL"));
         stateList.add(new LabelValue("Alaska", "AK"));
@@ -658,15 +658,15 @@ public class RegistrationController {
         }
         if ((form.getChurchName() == null || form.getChurchName().isEmpty()) && form.getChurchID() != null) {
             Church ch = registrationService.getChurchByID(form.getChurchID());
-            
+
             form.setChurchName(ch.getChurchNameChn() + " " + ch.getChurchNameEng());
             form.setChurchCity(ch.getCity());
             form.setChurchState(ch.getState());
-            
+
         }
         calculateFee(form);
     }
-    
+
     public void calculateFee(RegistrationForm form) {
 
         String currency;
@@ -730,19 +730,34 @@ public class RegistrationController {
                 regt.setExpense(exp);
             }
             // >>>>>>>>>>>>>>>>>>>>> Registration fee >>>>>>>>>>>>>>>>>>>>> 
-            if (regt.getPerson().getAge().startsWith("A") || Integer.parseInt(regt.getPerson().getAge()) >= 14) {
+
+            if (regt.getPerson().getPreferredLanguage().equalsIgnoreCase("M") || regt.getPerson().getPreferredLanguage().equalsIgnoreCase("E")) {
                 regt.getExpense().setTotalRegistrationFee(adultRegistrationFee);
                 regt.getExpense().setAdultHeadcount(1);
                 totalExpense.setAdultHeadcount(totalExpense.getAdultHeadcount() + 1);
-            } else if (Integer.parseInt(regt.getPerson().getAge()) > 4) {
+            } else if (regt.getPerson().getPreferredLanguage().equalsIgnoreCase("C") || regt.getPerson().getPreferredLanguage().equalsIgnoreCase("K")) {
                 regt.getExpense().setTotalRegistrationFee(nonAdultRegistrationFee);
                 regt.getExpense().setAdultHeadcount(1);
                 totalExpense.setNonAdultHeadcount(totalExpense.getNonAdultHeadcount() + 1);
-            } else {
+            } else if (regt.getPerson().getPreferredLanguage().equalsIgnoreCase("T")) {
                 regt.getExpense().setTotalRegistrationFee(nonxAdultRegistrationFee);
                 regt.getExpense().setNonAdultHeadcount(1);
                 totalExpense.setNonAdultXHeadcount(totalExpense.getNonAdultXHeadcount() + 1);
             }
+
+//            if (regt.getPerson().getAge().startsWith("A") || Integer.parseInt(regt.getPerson().getAge()) >= 14) {
+//                regt.getExpense().setTotalRegistrationFee(adultRegistrationFee);
+//                regt.getExpense().setAdultHeadcount(1);
+//                totalExpense.setAdultHeadcount(totalExpense.getAdultHeadcount() + 1);
+//            } else if (Integer.parseInt(regt.getPerson().getAge()) > 4) {
+//                regt.getExpense().setTotalRegistrationFee(nonAdultRegistrationFee);
+//                regt.getExpense().setAdultHeadcount(1);
+//                totalExpense.setNonAdultHeadcount(totalExpense.getNonAdultHeadcount() + 1);
+//            } else {
+//                regt.getExpense().setTotalRegistrationFee(nonxAdultRegistrationFee);
+//                regt.getExpense().setNonAdultHeadcount(1);
+//                totalExpense.setNonAdultXHeadcount(totalExpense.getNonAdultXHeadcount() + 1);
+//            }
             // >>>>>>>>>>>>>>>>>>>>> Meal fee >>>>>>>>>>>>>>>>>>>>>            
             Mealplan mp = regt.getMealplan();
 

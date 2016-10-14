@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div id="popupFlow" >
-    <p class="error">You have choose to cancel. Your data will be lost</p>
+    <p class="error">You have chosen to cancel. Your data will be lost.</p>
     <div >
         <form:form id="confirmation" action="${flowExecutionUrl}" acceptCharset="UTF-8">
             <button id="return" type="submit" name="_eventId_return">&lt;&lt; Return</button>

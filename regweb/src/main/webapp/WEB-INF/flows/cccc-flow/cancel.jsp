@@ -2,7 +2,7 @@
     <br/>
 </div>
 <div id="embeddedFlow" class="span-18">
-	<p class="error">Registration canceled !</p>
+	<p class="error">Registration canceled.</p>
 	<div>
 		<p>
 		<a id="startFlow" href="cccc-flow">Start Over</a>

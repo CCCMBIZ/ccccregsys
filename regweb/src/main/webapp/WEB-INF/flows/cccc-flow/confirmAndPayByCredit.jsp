@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="span-2">
     <br/>
 </div>
@@ -21,12 +22,22 @@
                     </td>
                 </tr>
             </table>
-            <p>在您点击“Pay Now”进入下一页前，请阅读有以下的注意事项：</p> 
+            <hr/>
+            <p>在您点击“Pay Now”进入下一页前，请阅读有以下的注意事项：Please follow instructions below for payment options in next page:</p> 
             <ul type="circle">
-                <li>如果您使用信用卡付款，请点击” Don’t have a PayPal account” 按钮，无须登录PayPal账户。</li>
-                <li>请勿点击浏览器的退回键，以免丢失您的所有信息。</li>
+                <li>如果您有Paypal账户,請使用 <font color="red"><b>OPTION 1</b></font> 輸入账号與密碼登录PayPal账户。<br/>If you have Paypal account, please use <font color="red"><b>OPTION 1</b></font> to login and make a payment.</li>
+                <li>如果您使用信用卡付款,請使用 <font color="red"><b>OPTION 2</b></font> 点击"Pay with Debit or Credit Card" 按钮前進用卡付款。<br/>If you wish to pay with debit or credit card, please use <font color="red"><b>OPTION 2</b></font>, click the button to pay with debit/credit card</li>
+                <li>请勿点击浏览器的退回键，以免丢失您的所有信息。Please do not use back button of browser.</li>
             </ul>
-            <b>Pay now with credit card or PayPal 点击下方图标付款</b>
+
+            <div align="center">
+                <img src="<c:url value="/resources/styles/images/PaymentOptionsB.jpg" />" width="378" height="336" align="center"/>
+                <br/>
+                <hr/>
+            </div>
+            <b>点击下方图标付款. Please click button below to make payment</b>
+            <br/>
+            <br/>
             <form:form method="post" modelAttribute="paymentProvider" action="${paymentUrl}">
                 <form:hidden path="cmd"/>
                 <form:hidden path="redirect_cmd"/>
@@ -57,9 +68,8 @@
                 </p>
             </form:form>
         </div>
-        <hr style="width: 100%; height: 2px;"/>
-        <br/>
+
     </div>
-    
+
 
 </div>

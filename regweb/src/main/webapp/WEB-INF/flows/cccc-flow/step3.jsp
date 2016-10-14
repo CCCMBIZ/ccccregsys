@@ -118,7 +118,7 @@
                         <p><strong>3)</strong>&nbsp;<strong>參加聚會 </strong><strong>Workshops:</strong></p>
                         <p style="padding-left: 30px;">按每人的年齡與需要勾選將參加的聚會</p>
                         <p style="padding-left: 30px;">Please select the ones best fit your interest, age and need.</p>
-                        <p><strong>4) 會服事(Home church serving Roles)：</strong></p>
+                        <p><strong>4) 本教會服事(Home church serving Roles)：</strong></p>
                         <p style="padding-left: 30px;"><strong>F</strong>（全職傳道 &ndash; Full time pastor/missionary）、<strong>P</strong>（教會牧者 &ndash; Church pastor）、<strong>T</strong>（神學生 - Theological seminary student）、<strong>N</strong>（機構同工 &ndash; Christian organization staff）、<strong>C</strong>（校園同工 &ndash; Campus worker）、<strong>E</strong>（教會長執 &ndash; Church leadership team member）、<strong>S</strong>（小組或團契同工 &ndash; Small group/fellowship&nbsp; coworkers）</p>
                         <p><strong>5)&nbsp;信仰 Faith:</strong></p>
                         <p style="padding-left: 30px;">已信主者請在第二格打勾（&uuml;），並填上（信主年數）。</p>

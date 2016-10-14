@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div id="popupFlow">
-    <p class="error">Are you sure ? </p>
+    <p class="error">Are you sure?</p>
     <div>
         <form:form id="confirmation" action="${flowExecutionUrl}" acceptCharset="UTF-8">
             <button id="return" type="submit" name="_eventId_return">&lt;&lt; Return</button>

@@ -18,6 +18,11 @@ import biz.cccm.registration.model.Person;
 import biz.cccm.registration.model.Profile;
 import biz.cccm.registration.model.Mealplan;
 import biz.cccm.registration.model.Payment;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+import java.nio.charset.CodingErrorAction;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -214,6 +219,10 @@ public class RegistrationServiceImpl implements RegistrationService {
             profile.setRegisteredDate(form.getRegistrationDate());
             profile.setLastModified(new Date());
 
+            if (profile.getChucrhName().length() > 50) {
+                String temp = truncateToFitUtf8ByteLength(profile.getChucrhName(), 50);
+                profile.setChucrhName(temp);
+            }
             logger.debug("Profile chuch name:" + profile.getChucrhName());
             logger.debug("Profile family ID:" + profile.getFamilyID());
             logger.debug("Profile person ID:" + profile.getPersonID());
@@ -331,5 +340,49 @@ public class RegistrationServiceImpl implements RegistrationService {
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(RegistrationServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private static String trim(String s, int byteLimit) {
+        if (s.getBytes().length <= byteLimit) {
+            return s;
+        }
+
+        int n = Math.min(byteLimit - 1, s.length() - 1);
+        do {
+            s = s.substring(0, n--);
+        } while (s.getBytes().length > byteLimit);
+
+        return s;
+    }
+
+    /**
+     * Truncates a string to the number of characters that fit in X bytes
+     * avoiding multi byte characters being cut in half at the cut off point.
+     * Also handles surrogate pairs where 2 characters in the string is actually
+     * one literal character.
+     *
+     * Based on: http://www.jroller.com/holy/entry/truncating_utf_string_to_the
+     * @param s
+     * @param maxBytes
+     * @return 
+     */
+    public static String truncateToFitUtf8ByteLength(String s, int maxBytes) {
+        if (s == null) {
+            return null;
+        }
+        Charset charset = Charset.forName("UTF-8");
+        CharsetDecoder decoder = charset.newDecoder();
+        byte[] sba = s.getBytes(charset);
+        if (sba.length <= maxBytes) {
+            return s;
+        }
+        // Ensure truncation by having byte buffer = maxBytes
+        ByteBuffer bb = ByteBuffer.wrap(sba, 0, maxBytes);
+        CharBuffer cb = CharBuffer.allocate(maxBytes);
+        // Ignore an incomplete character
+        decoder.onMalformedInput(CodingErrorAction.IGNORE);
+        decoder.decode(bb, cb, true);
+        decoder.flush(cb);
+        return new String(cb.array(), 0, cb.position());
     }
 }

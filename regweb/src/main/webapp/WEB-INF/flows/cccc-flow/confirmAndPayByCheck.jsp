@@ -16,7 +16,7 @@
         <p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;">
             <span lang="ZH-CN" style="font-size: 11pt; font-family: SimHei; color: blue;">
                 <b>
-                    谢谢您选择以支票付款。手續要在費用繳清後才完成，請在一星期內繳清費用${form.paymentCurrency} $${form.expense.totalRegistrationFee+form.expense.totalMealsFee}，否則報名資料將取消。5人以上集体报名，每人$30.支票抬头请写：CCCM，请在Memo中注明：CCCC2016，并请注明您的大会报名确认码ID ${form.formID}。请将支票寄至：
+                    谢谢您选择以支票付款。手續要在費用繳清後才完成，請在一星期內繳清費用${form.paymentCurrency} $${form.expense.totalRegistrationFee+form.expense.totalMealsFee}，否則報名資料將取消。支票抬头请写：CCCM，请在Memo中注明：CCCC2016，并请注明您的大会报名确认码ID ${form.formID}。请将支票寄至：
                     To complete your registration process. Please print this receipt and send your total payment within one week. Please <b>INCLUDE YOUR Registration Number on the Memo line</b> and mail ${form.paymentCurrency} $${form.expense.totalRegistrationFee+form.expense.totalMealsFee} check to
                 </b>
             </span>
