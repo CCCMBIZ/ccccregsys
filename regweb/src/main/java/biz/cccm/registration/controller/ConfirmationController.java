@@ -214,22 +214,22 @@ public class ConfirmationController {
                     names += " ";
                     names += person.getLastName();
 
-//                    if (person.getAge() != null && !person.getAge().isEmpty()) {
-//                        if (person.getAge().startsWith("A")) {
-//                            adulttotal++;
-//                        } else if (Integer.parseInt(person.getAge()) > 4) {
-//                            nonadulttotal++;
-//                        } else if (Integer.parseInt(person.getAge()) <= 4) {
-//                            nonxadulttotal++;
-//                        }
-//                    }
-                    if (person.getPreferredLanguage().equalsIgnoreCase("M") || person.getPreferredLanguage().equalsIgnoreCase("E")) {
-                        adulttotal++;
-                    } else if (person.getPreferredLanguage().equalsIgnoreCase("C") || person.getPreferredLanguage().equalsIgnoreCase("K")) {
-                        nonadulttotal++;
-                    } else if (person.getPreferredLanguage().equalsIgnoreCase("T")) {
-                        nonxadulttotal++;
+                    if (person.getAge() != null && !person.getAge().isEmpty()) {
+                        if (person.getAge().startsWith("A")) {
+                            adulttotal++;
+                        } else if (Integer.parseInt(person.getAge()) >= 4) {
+                            nonadulttotal++;
+                        } else if (Integer.parseInt(person.getAge()) < 4) {
+                            nonxadulttotal++;
+                        }
                     }
+//                    if (person.getPreferredLanguage().equalsIgnoreCase("M") || person.getPreferredLanguage().equalsIgnoreCase("E")) {
+//                        adulttotal++;
+//                    } else if (person.getPreferredLanguage().equalsIgnoreCase("C") || person.getPreferredLanguage().equalsIgnoreCase("K")) {
+//                        nonadulttotal++;
+//                    } else if (person.getPreferredLanguage().equalsIgnoreCase("T")) {
+//                        nonxadulttotal++;
+//                    }
                 }
 
                 Map<String, String> plan = getMealCount(itemNumber);
