@@ -6,6 +6,7 @@ package biz.cccm.registration.service;
 
 import biz.cccm.registration.domain.RegistrationForm;
 import biz.cccm.registration.model.Church;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,4 +22,6 @@ public interface RegistrationService {
     public void cancel(String registrationID);
     
     public Church getChurchByID(Integer churchID) ;
+    
+    public List<Church> getChurchByState(String state) ;
 }

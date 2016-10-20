@@ -3,10 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<script type="text/javascript" src="<c:url value="/js/dynamicDropDown.js"/>">
-</script>
-
-
 <div class="span-2 colborder">
     <br/>
 </div>
@@ -20,32 +16,35 @@
             <form:errors path="*" cssClass="fieldError"/>
             <br/>
             <table border="0" cellspacing="0" cellpadding="0" width="968">
+
                 <tr>
-                    <td><strong>(1)請先選擇您的州Select your State first:</strong><br/>
-                        <a href="javascript:changer('Illinois')">Illinois</a> | 
-                        <a href="javascript:changer('California')">California</a> | 
-                        <a href="javascript:changer('Iowa')">Iowa</a> | 
-                        <a href="javascript:changer('Indiana')">Indiana</a> | 
-                        <a href="javascript:changer('Kentucky')">Kentucky</a> | 
-                        <a href="javascript:changer('Michigan')">Michigan</a> | 
-                        <a href="javascript:changer('Missouri')">Missouri</a> | 
-                        <a href="javascript:changer('Minnesota')">Minnesota</a> | 
-                        <a href="javascript:changer('Pennsylvania')">Pennsylvania</a> | 
-                        <a href="javascript:changer('Tennessee')">Tennessee</a> | 
-                        <a href="javascript:changer('Texas')">Texas</a> | 
-                        <a href="javascript:changer('Wisconsin')">Wisconsin</a> | 
-                        <a href="javascript:changer('Ohio')">Ohio</a> | 
-                        <a href="javascript:changer('North_Carolina')">North Carolina</a> | 
-                        <a href="javascript:changer('Other')">Other</a>
-                        <input type="hidden" name="theState"/>    
-                        <br/>
-                        <br/>
-                        <strong>(2)教會/團契/查經班 Church, Fellowship or Bible Study Group: <font color='red'>*</font></strong><br/>
-                        <form:select name="churchID" id="churchID" path="churchID" >
-                            <form:option value="0" label="-- Select your state first --"/>                                        
+                    <td class="normal_text"><strong>(1) 請先選擇您的州Select your State first:</strong><br/>
+                        <form:select id="churchStateId" path="selectedChurchState" style='margin-left:10px;margin-right:10px;' >
+                            <form:option value="" label="-- Select State --" />
+                            <form:options items="${form.churchStateList}" itemValue="value" itemLabel="label" />
                         </form:select>
+                        <script type="text/javascript">
+                            Spring.addDecoration(new Spring.AjaxEventDecoration({
+                                elementId: "churchStateId",
+                                formId: "step1",
+                                event: "onchange",
+                                params: {
+                                    _eventId: "loadchurch",
+                                    fragments: "body"
+                                }
+                            }));
+                        </script>
                     </td>
                     <td width="248">報名日期Registered Date:<fmt:formatDate pattern="MM/dd/yyyy" value="${form.registrationDate}" /></td>
+                </tr>
+                <tr>
+                    <td class="normal_text" colspan="2">
+                        <strong>(2) 教會/團契/查經班 Church, Fellowship or Bible Study Group: <font color='red'>*</font></strong><br/>
+                            <form:select name="churchID" id="churchID" path="churchID" style='margin-left:10px;margin-right:10px;'>
+                                <form:option value="0" label="-- Select state first --"/>
+                                <form:options items="${form.churchList}" itemValue="value" itemLabel="label" />
+                            </form:select>
+                    </td>
                 </tr>
                 <tr> 
                     <td colspan="3"> 

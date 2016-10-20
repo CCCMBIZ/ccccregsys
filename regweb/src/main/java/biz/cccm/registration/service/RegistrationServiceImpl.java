@@ -385,4 +385,9 @@ public class RegistrationServiceImpl implements RegistrationService {
         decoder.flush(cb);
         return new String(cb.array(), 0, cb.position());
     }
+
+    @Override
+    public List<Church> getChurchByState(String state) {   
+        return churchDao.findChurchesByQuery("SELECT c FROM Church c WHERE c.state = '" + state + "'");
+    }
 }

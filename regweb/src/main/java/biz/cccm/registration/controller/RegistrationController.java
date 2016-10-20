@@ -23,6 +23,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -344,6 +346,27 @@ public class RegistrationController {
 
         registrationForm.setStateList(stateList);
 
+        List<LabelValue> churchStateList;
+        churchStateList = new ArrayList<LabelValue>();
+        churchStateList.add(new LabelValue("Illinois", "IL"));
+        churchStateList.add(new LabelValue("Indiana", "IN"));
+        churchStateList.add(new LabelValue("Wisconsin", "WI"));
+        churchStateList.add(new LabelValue("Other", "OT"));
+        churchStateList.add(new LabelValue("--------------", "ZZ"));
+        churchStateList.add(new LabelValue("California", "CA"));
+        churchStateList.add(new LabelValue("Iowa", "IA"));
+        churchStateList.add(new LabelValue("Kentucky", "KY"));
+        churchStateList.add(new LabelValue("Michigan", "MI"));
+        churchStateList.add(new LabelValue("Missouri", "MS"));
+        churchStateList.add(new LabelValue("Minnesota", "MN"));
+        churchStateList.add(new LabelValue("Pennsylvania", "PA"));
+        churchStateList.add(new LabelValue("Tennessee", "TN"));
+        churchStateList.add(new LabelValue("Texas", "TX"));
+        churchStateList.add(new LabelValue("Ohio", "OH"));
+        churchStateList.add(new LabelValue("North Carolina", "NC"));
+
+        registrationForm.setChurchStateList(churchStateList);
+
         try {
             Date d = DateUtil.getToday().getTime();
             registrationForm.setRegistrationDate(d);
@@ -505,6 +528,32 @@ public class RegistrationController {
         }
 
         return null;
+    }
+
+    public RegistrationForm populateChurchList(RegistrationForm form, String state) {
+
+        logger.debug("loadChurch:" + state);
+
+        if (state != null && !state.isEmpty()) {
+
+            if (form.getChurchList() == null) {
+                form.setChurchList(new ArrayList<>());
+            }
+            if (!form.getChurchList().isEmpty()) {
+                form.getChurchList().clear();
+            }
+            List<Church> clist = registrationService.getChurchByState(state);
+            if (clist != null && !clist.isEmpty()) {
+                clist.stream().map((church) -> new LabelValue(church.getAcronym() + " " + church.getChurchNameChn() + " " + church.getChurchNameEng(), church.getChurchID().toString())).forEach((lv) -> {
+                    form.getChurchList().add((LabelValue) lv);
+                });
+                Collections.sort(form.getChurchList()) ;
+            } else {
+                form.getChurchList().add(new LabelValue("Other", "888"));
+            }
+        }
+
+        return form;
     }
 
     public String getPaymentProviderUrl(RegistrationForm form) {
@@ -731,33 +780,32 @@ public class RegistrationController {
             }
             // >>>>>>>>>>>>>>>>>>>>> Registration fee >>>>>>>>>>>>>>>>>>>>> 
 
-            if (regt.getPerson().getPreferredLanguage().equalsIgnoreCase("M") || regt.getPerson().getPreferredLanguage().equalsIgnoreCase("E")) {
-                regt.getExpense().setTotalRegistrationFee(adultRegistrationFee);
-                regt.getExpense().setAdultHeadcount(1);
-                totalExpense.setAdultHeadcount(totalExpense.getAdultHeadcount() + 1);
-            } else if (regt.getPerson().getPreferredLanguage().equalsIgnoreCase("C") || regt.getPerson().getPreferredLanguage().equalsIgnoreCase("K")) {
-                regt.getExpense().setTotalRegistrationFee(nonAdultRegistrationFee);
-                regt.getExpense().setAdultHeadcount(1);
-                totalExpense.setNonAdultHeadcount(totalExpense.getNonAdultHeadcount() + 1);
-            } else if (regt.getPerson().getPreferredLanguage().equalsIgnoreCase("T")) {
-                regt.getExpense().setTotalRegistrationFee(nonxAdultRegistrationFee);
-                regt.getExpense().setNonAdultHeadcount(1);
-                totalExpense.setNonAdultXHeadcount(totalExpense.getNonAdultXHeadcount() + 1);
-            }
-
-//            if (regt.getPerson().getAge().startsWith("A") || Integer.parseInt(regt.getPerson().getAge()) >= 14) {
+//            if (regt.getPerson().getPreferredLanguage().equalsIgnoreCase("M") || regt.getPerson().getPreferredLanguage().equalsIgnoreCase("E")) {
 //                regt.getExpense().setTotalRegistrationFee(adultRegistrationFee);
 //                regt.getExpense().setAdultHeadcount(1);
 //                totalExpense.setAdultHeadcount(totalExpense.getAdultHeadcount() + 1);
-//            } else if (Integer.parseInt(regt.getPerson().getAge()) > 4) {
+//            } else if (regt.getPerson().getPreferredLanguage().equalsIgnoreCase("C") || regt.getPerson().getPreferredLanguage().equalsIgnoreCase("K")) {
 //                regt.getExpense().setTotalRegistrationFee(nonAdultRegistrationFee);
 //                regt.getExpense().setAdultHeadcount(1);
 //                totalExpense.setNonAdultHeadcount(totalExpense.getNonAdultHeadcount() + 1);
-//            } else {
+//            } else if (regt.getPerson().getPreferredLanguage().equalsIgnoreCase("T")) {
 //                regt.getExpense().setTotalRegistrationFee(nonxAdultRegistrationFee);
 //                regt.getExpense().setNonAdultHeadcount(1);
 //                totalExpense.setNonAdultXHeadcount(totalExpense.getNonAdultXHeadcount() + 1);
 //            }
+            if (regt.getPerson().getAge().startsWith("A")) {
+                regt.getExpense().setTotalRegistrationFee(adultRegistrationFee);
+                regt.getExpense().setAdultHeadcount(1);
+                totalExpense.setAdultHeadcount(totalExpense.getAdultHeadcount() + 1);
+            } else if (Integer.parseInt(regt.getPerson().getAge()) >= 4) {
+                regt.getExpense().setTotalRegistrationFee(nonAdultRegistrationFee);
+                regt.getExpense().setAdultHeadcount(1);
+                totalExpense.setNonAdultHeadcount(totalExpense.getNonAdultHeadcount() + 1);
+            } else if (Integer.parseInt(regt.getPerson().getAge()) < 4) {
+                regt.getExpense().setTotalRegistrationFee(nonxAdultRegistrationFee);
+                regt.getExpense().setNonAdultHeadcount(1);
+                totalExpense.setNonAdultXHeadcount(totalExpense.getNonAdultXHeadcount() + 1);
+            }
             // >>>>>>>>>>>>>>>>>>>>> Meal fee >>>>>>>>>>>>>>>>>>>>>            
             Mealplan mp = regt.getMealplan();
 

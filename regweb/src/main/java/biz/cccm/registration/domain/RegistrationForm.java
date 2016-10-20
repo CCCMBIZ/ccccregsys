@@ -57,11 +57,11 @@ public class RegistrationForm extends BaseObject {
     private List<Fee> fees;
     private PaymentProvider paymentProvider;
     private String paymentCurrency;
-    
+
     private String primaryChineseName;
-    private String primaryFirstName ;
-    private String primaryLastName ;
-    /** 
+    private String primaryFirstName;
+    private String primaryLastName;
+    /**
      * The following code is added for issue 23: Force the check box of payment.
      */
     private boolean chkPmt;
@@ -73,7 +73,9 @@ public class RegistrationForm extends BaseObject {
     private List<LabelValue> statusGroup;
     private List<LabelValue> statusGroup2;
     private List<LabelValue> stateList;
-
+    private List<LabelValue> churchStateList;
+    private List<LabelValue> churchList;
+    private String selectedChurchState;
     /**
      * For issue5. The following part is added for language and interpret
      * headphone.
@@ -1108,23 +1110,26 @@ public class RegistrationForm extends BaseObject {
     public void setFees(List<Fee> fees) {
         this.fees = fees;
     }
-    
+
     /**
      * The following code is added for issue23: forced the checkbox of payment.
+     *
      * @param chkPmt checkbox of payment
      * @param donationAmt donation amount
      */
-    public void setChkPmt( boolean chkPmt ){
+    public void setChkPmt(boolean chkPmt) {
         this.chkPmt = chkPmt;
     }
-    public boolean getChkPmt(){
+
+    public boolean getChkPmt() {
         return chkPmt;
     }
-    
-    public void setDonationAmt( double donationAmt ){
+
+    public void setDonationAmt(double donationAmt) {
         this.donationAmt = donationAmt;
     }
-    public double getDonationAmt(){
+
+    public double getDonationAmt() {
         return donationAmt;
     }
 
@@ -1196,5 +1201,47 @@ public class RegistrationForm extends BaseObject {
      */
     public void setPaymentCurrency(String paymentCurrency) {
         this.paymentCurrency = paymentCurrency;
+    }
+
+    /**
+     * @return the churchStateList
+     */
+    public List<LabelValue> getChurchStateList() {
+        return churchStateList;
+    }
+
+    /**
+     * @param churchStateList the churchStateList to set
+     */
+    public void setChurchStateList(List<LabelValue> churchStateList) {
+        this.churchStateList = churchStateList;
+    }
+
+    /**
+     * @return the churchList
+     */
+    public List<LabelValue> getChurchList() {
+        return churchList;
+    }
+
+    /**
+     * @param churchList the churchList to set
+     */
+    public void setChurchList(List<LabelValue> churchList) {
+        this.churchList = churchList;
+    }
+
+    /**
+     * @return the selectedChurchState
+     */
+    public String getSelectedChurchState() {
+        return selectedChurchState;
+    }
+
+    /**
+     * @param selectedChurchState the selectedChurchState to set
+     */
+    public void setSelectedChurchState(String selectedChurchState) {
+        this.selectedChurchState = selectedChurchState;
     }
 }

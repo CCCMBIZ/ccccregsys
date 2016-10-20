@@ -15,8 +15,12 @@
     <view-state id="step1" model="form" view="cccc/step1">
         <transition on="next" to="step2"/> 
         <transition on="cancel" to="step1CancelDialog" validate="false"/>
+        <transition on="loadchurch" validate="false" >
+            <set name="viewScope.churchStateId" value="requestParameters.churchStateId"/>
+            <evaluate expression="registrationController.populateChurchList(form, viewScope.churchStateId)"></evaluate>
+        </transition>
     </view-state>
-    
+
     <subflow-state id="step1CancelDialog" subflow="popup-flow">
         <transition on="return" to="step1"/>
         <transition on="continue" to="cancel" />
