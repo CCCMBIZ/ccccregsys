@@ -42,6 +42,9 @@
                             <form:option value="4" />
                             <form:option value="5" />
                             <form:option value="6" />
+                            <form:option value="7" />
+                            <form:option value="8" />
+                            <form:option value="9" />
                         </form:select>份
                     </td>
                     <td class="xl67" style="width: 127px;">
@@ -53,6 +56,10 @@
                             <form:option value="4" />
                             <form:option value="5" />
                             <form:option value="6" />
+                            <form:option value="6" />
+                            <form:option value="7" />
+                            <form:option value="8" />
+                            <form:option value="9" />
                         </form:select>份
                     </td>
                     <td class="xl67" style="width: 123px;">
@@ -64,6 +71,10 @@
                             <form:option value="4" />
                             <form:option value="5" />
                             <form:option value="6" />
+                            <form:option value="6" />
+                            <form:option value="7" />
+                            <form:option value="8" />
+                            <form:option value="9" />
                         </form:select>份
                     </td>
                 </tr>
@@ -98,6 +109,10 @@
                             <form:option value="4" />
                             <form:option value="5" />
                             <form:option value="6" />
+                            <form:option value="6" />
+                            <form:option value="7" />
+                            <form:option value="8" />
+                            <form:option value="9" />
                         </form:select>份
                     </td>
                     <td class="xl67" style="width: 127px;">
@@ -109,6 +124,10 @@
                             <form:option value="4" />
                             <form:option value="5" />
                             <form:option value="6" />
+                            <form:option value="6" />
+                            <form:option value="7" />
+                            <form:option value="8" />
+                            <form:option value="9" />
                         </form:select>份
                     </td>
                     <td class="xl67" style="width: 123px;">
@@ -120,6 +139,10 @@
                             <form:option value="4" />
                             <form:option value="5" />
                             <form:option value="6" />
+                            <form:option value="6" />
+                            <form:option value="7" />
+                            <form:option value="8" />
+                            <form:option value="9" />
                         </form:select>份
                     </td>
                 </tr>
@@ -151,6 +174,10 @@
                             <form:option value="4" />
                             <form:option value="5" />
                             <form:option value="6" />
+                            <form:option value="6" />
+                            <form:option value="7" />
+                            <form:option value="8" />
+                            <form:option value="9" />
                         </form:select>份
                     </td>
                     <td style="vertical-align: top;">
@@ -162,6 +189,10 @@
                             <form:option value="4" />
                             <form:option value="5" />
                             <form:option value="6" />
+                            <form:option value="6" />
+                            <form:option value="7" />
+                            <form:option value="8" />
+                            <form:option value="9" />
                         </form:select>份
                     </td>
                     <td style="vertical-align: top;">
@@ -173,6 +204,10 @@
                             <form:option value="4" />
                             <form:option value="5" />
                             <form:option value="6" />
+                            <form:option value="6" />
+                            <form:option value="7" />
+                            <form:option value="8" />
+                            <form:option value="9" />
                         </form:select>份
                     </td>
                     <td style="vertical-align: top;">N/A</td>
